@@ -1,3 +1,12 @@
+// Milestone 2
+// Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
+// Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
+// BONUS
+// Formattare le date in formato italiano (gg/mm/aaaa)
+// Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).
+// Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.
+
+
 const posts = [
     {
         "id": 1,
@@ -87,7 +96,7 @@ posts.forEach((element, i) => {
         <div class="post__footer">
             <div class="likes js-likes">
                 <div class="likes__cta">
-                    <a class="like-button  js-like-button" href="#" data-postid="1">
+                    <a class="like-button js-like-button" href="#" data-postid="1">
                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                         <span class="like-button__label">Mi Piace</span>
                     </a>
@@ -99,4 +108,11 @@ posts.forEach((element, i) => {
         </div>            
     </div>
     `
+})
+
+const likeButton = document.querySelector('.like-button');
+console.log(likeButton);
+
+likeButton.addEventListener('click', function () {
+    likeButton.classList.toggle('like-button--liked');
 })
