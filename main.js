@@ -58,3 +58,7 @@ const posts = [
 
 const postListElement = document.getElementById('container');
 console.log(postListElement);
+
+posts.forEach((element, i) => {
+    console.log(element, i)
+})
