@@ -72,10 +72,10 @@ posts.forEach((element, i) => {
         <div class="post__header">
             <div class="post-meta">                    
                 <div class="post-meta__icon">
-                    <img class="profile-pic" src="https://unsplash.it/300/300?image=15" alt="Phil Mangione">                    
+                    <img class="profile-pic" src="${image}" alt="${name}">                    
                 </div>
                 <div class="post-meta__data">
-                    <div class="post-meta__author">Phil Mangione</div>
+                    <div class="post-meta__author">${name}</div>
                     <div class="post-meta__time">${element.created}</div>
                 </div>                    
             </div>
