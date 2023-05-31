@@ -1,8 +1,6 @@
-// Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
 // BONUS
 // Formattare le date in formato italiano (gg/mm/aaaa)
 // Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).
-// Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.
 
 
 const posts = [
@@ -93,7 +91,7 @@ posts.forEach((element, i) => {
         <div class="post__footer">
             <div class="likes js-likes">
                 <div class="likes__cta">
-                    <a class="like-button js-like-button" href="#" data-postid="1">
+                    <a class="like-button js-like-button" href="#${element.id}" data-postid="1">
                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                         <span class="like-button__label">Mi Piace</span>
                     </a>
@@ -136,6 +134,7 @@ function clickLikeButtonBehavior(buttonNumber) {
 
             likeCounterElement[buttonNumber].innerHTML = numberOfLikes[buttonNumber];
             likedPosts.pop(posts[buttonNumber].id);
+            console.log(likedPosts);
         }
     })
 }
