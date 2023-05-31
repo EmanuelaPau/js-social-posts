@@ -71,8 +71,6 @@ console.log(postListElement);
 let numberOfLikes = [];
 
 posts.forEach((element, i) => {
-    // console.log(element, i)
-
     const { name, image } = element.author;
     // console.log(name, image);
 
@@ -119,7 +117,10 @@ console.log(likeButton[3]);
 
 const likeCounterElement = document.querySelectorAll('.js-likes-counter')
 
-
+posts.forEach((element, i) => {
+    // console.log(element, i)
+    clickLikeButtonBehavior(i);
+})
 
 function clickLikeButtonBehavior(buttonNumber) {
     likeButton[buttonNumber].addEventListener('click', function () {
