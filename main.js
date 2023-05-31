@@ -119,16 +119,20 @@ console.log(likeButton[3]);
 
 const likeCounterElement = document.querySelectorAll('.js-likes-counter')
 
-likeButton[1].addEventListener('click', function () {
 
-    likeButton[1].classList.toggle('like-button--liked');
 
-    if (likeButton[1].classList.contains('like-button--liked')) {
-        // numberOfLikes[1]--;
-        likeCounterElement[1].innerHTML = numberOfLikes[1] + 1;
-    } else {
-        // numberOfLikes[1]++;
+function clickLikeButtonBehavior(buttonNumber) {
+    likeButton[buttonNumber].addEventListener('click', function () {
 
-        likeCounterElement[1].innerHTML = numberOfLikes[1];
-    }
-})
+        likeButton[buttonNumber].classList.toggle('like-button--liked');
+
+        if (likeButton[buttonNumber].classList.contains('like-button--liked')) {
+            // numberOfLikes[1]--;
+            likeCounterElement[buttonNumber].innerHTML = numberOfLikes[buttonNumber] + 1;
+        } else {
+            // numberOfLikes[1]++;
+
+            likeCounterElement[buttonNumber].innerHTML = numberOfLikes[buttonNumber];
+        }
+    })
+}
