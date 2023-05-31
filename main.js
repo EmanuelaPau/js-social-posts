@@ -59,8 +59,13 @@ const posts = [
 const postListElement = document.getElementById('container');
 console.log(postListElement);
 
+
+
 posts.forEach((element, i) => {
-    console.log(element, i)
+    // console.log(element, i)
+
+    const { name, image } = element.author;
+    console.log(name, image);
 
     postListElement.innerHTML += ` 
     <div class="post">
@@ -71,7 +76,7 @@ posts.forEach((element, i) => {
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">Phil Mangione</div>
-                    <div class="post-meta__time">4 mesi fa</div>
+                    <div class="post-meta__time">${element.created}</div>
                 </div>                    
             </div>
         </div>
