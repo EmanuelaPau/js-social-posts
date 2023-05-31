@@ -77,6 +77,21 @@ posts.forEach((element, i) => {
     nameFirstLetters = nameFirstLetters.join('');
     // console.log(nameFirstLetters)
 
+    const todayDate = new Date().getTime();
+    let postDate = new Date(`${unformattedDate.substring(5, 7)} ${unformattedDate.substring(8, 10)}, ${unformattedDate.substring(0, 4)}`).getTime();
+    let howMuchMillisecondsFromPostDate = todayDate - postDate;
+
+    function convertMsToTime(milliseconds) {
+        let seconds = Math.floor(milliseconds / 1000);
+        let minutes = Math.floor(seconds / 60);
+        let hours = Math.floor(minutes / 60);
+        let days = Math.floor(hours / 24);
+        let weeks = Math.floor(days / 7);
+        let months = Math.floor(days / 30);
+
+        return months;
+    }
+
     numberOfLikes.push(element.likes);
 
     if (image === null) {
@@ -92,7 +107,7 @@ posts.forEach((element, i) => {
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${name}</div>
-                    <div class="post-meta__time">${europeanFormatDate}</div>
+                    <div class="post-meta__time">${convertMsToTime(howMuchMillisecondsFromPostDate)} mesi fa</div>
                 </div>                    
             </div>
         </div>
@@ -126,7 +141,7 @@ posts.forEach((element, i) => {
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${name}</div>
-                        <div class="post-meta__time">${europeanFormatDate}</div>
+                        <div class="post-meta__time">${convertMsToTime(howMuchMillisecondsFromPostDate)} mesi fa</div>
                     </div>                    
                 </div>
             </div>
