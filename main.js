@@ -1,5 +1,3 @@
-// Milestone 2
-// Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
 // Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
 // BONUS
 // Formattare le date in formato italiano (gg/mm/aaaa)
@@ -66,7 +64,6 @@ const posts = [
 ];
 
 const postListElement = document.getElementById('container');
-console.log(postListElement);
 
 let numberOfLikes = [];
 
@@ -113,9 +110,10 @@ posts.forEach((element, i) => {
 console.log(numberOfLikes);
 
 const likeButton = document.querySelectorAll('.like-button');
-console.log(likeButton[3]);
 
 const likeCounterElement = document.querySelectorAll('.js-likes-counter')
+
+let likedPosts = [];
 
 posts.forEach((element, i) => {
     // console.log(element, i)
@@ -130,10 +128,14 @@ function clickLikeButtonBehavior(buttonNumber) {
         if (likeButton[buttonNumber].classList.contains('like-button--liked')) {
             // numberOfLikes[1]--;
             likeCounterElement[buttonNumber].innerHTML = numberOfLikes[buttonNumber] + 1;
+
+            likedPosts.push(posts[buttonNumber].id);
+            console.log(likedPosts);
         } else {
             // numberOfLikes[1]++;
 
             likeCounterElement[buttonNumber].innerHTML = numberOfLikes[buttonNumber];
+            likedPosts.pop(posts[buttonNumber].id);
         }
     })
 }
