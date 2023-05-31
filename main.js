@@ -67,17 +67,17 @@ let numberOfLikes = [];
 
 posts.forEach((element, i) => {
     let unformattedDate = element.created.toString();
-    console.log(unformattedDate);
+    let europeanFormatDate = `${unformattedDate.substring(8, 10)}/${unformattedDate.substring(5, 7)}/${unformattedDate.substring(0, 4)}`
+
+    // console.log(europeanFormatDate);
     // let day = unformattedDate.substr(1, 4);
     // console.log(day);
-    let europeanFormatDay = unformattedDate.substr(8, 9);
-    let europeanFormatMonth = unformattedDate.substr(5, 6);
-    let europeanFormatYear = unformattedDate.substr(0, 4);
-    console.log(europeanFormatDay);
-    console.log(europeanFormatMonth);
-    console.log(europeanFormatYear);
-
-
+    // let europeanFormatDay = unformattedDate.substring(8, 10);
+    // let europeanFormatMonth = unformattedDate.substring(5, 7);
+    // let europeanFormatYear = unformattedDate.substring(0, 4);
+    // console.log(europeanFormatDay);
+    // console.log(europeanFormatMonth);
+    // console.log(europeanFormatYear);
 
     const { name, image } = element.author;
     // console.log(name, image);
@@ -93,7 +93,7 @@ posts.forEach((element, i) => {
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${name}</div>
-                    <div class="post-meta__time">${element.created}</div>
+                    <div class="post-meta__time">${europeanFormatDate}</div>
                 </div>                    
             </div>
         </div>
