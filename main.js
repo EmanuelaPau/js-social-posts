@@ -69,27 +69,26 @@ posts.forEach((element, i) => {
     let unformattedDate = element.created.toString();
     let europeanFormatDate = `${unformattedDate.substring(8, 10)}/${unformattedDate.substring(5, 7)}/${unformattedDate.substring(0, 4)}`
 
-    // console.log(europeanFormatDate);
-    // let day = unformattedDate.substr(1, 4);
-    // console.log(day);
-    // let europeanFormatDay = unformattedDate.substring(8, 10);
-    // let europeanFormatMonth = unformattedDate.substring(5, 7);
-    // let europeanFormatYear = unformattedDate.substring(0, 4);
-    // console.log(europeanFormatDay);
-    // console.log(europeanFormatMonth);
-    // console.log(europeanFormatYear);
-
     const { name, image } = element.author;
     // console.log(name, image);
 
+    let nameFirstLetters = name.split(' ');
+    nameFirstLetters = nameFirstLetters.map(word => word.charAt(0))
+    nameFirstLetters = nameFirstLetters.join('');
+    // console.log(nameFirstLetters)
+
     numberOfLikes.push(element.likes);
 
-    postListElement.innerHTML += ` 
-    <div class="post">
+    if (image === null) {
+
+        postListElement.innerHTML += ` 
+        <div class="post">
         <div class="post__header">
             <div class="post-meta">                    
                 <div class="post-meta__icon">
-                    <img class="profile-pic" src="${image}" alt="${name}">                    
+                    <div class="profile-pic-default">
+                        <span>${nameFirstLetters}</span>                                     
+                    </div>                 
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${name}</div>
@@ -115,7 +114,44 @@ posts.forEach((element, i) => {
             </div> 
         </div>            
     </div>
+        `
+    } else {
+
+        postListElement.innerHTML += ` 
+        <div class="post">
+            <div class="post__header">
+                <div class="post-meta">                    
+                    <div class="post-meta__icon">
+                        <img class="profile-pic" src="${image}" alt="${name}">                    
+                    </div>
+                    <div class="post-meta__data">
+                        <div class="post-meta__author">${name}</div>
+                        <div class="post-meta__time">${europeanFormatDate}</div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="post__text">${element.content}</div>
+            <div class="post__image">
+                <img src="${element.media}" alt="">
+            </div>
+            <div class="post__footer">
+                <div class="likes js-likes">
+                    <div class="likes__cta">
+                        <a class="like-button js-like-button" href="#${element.id}" data-postid="1">
+                            <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                            <span class="like-button__label">Mi Piace</span>
+                        </a>
+                    </div>
+                    <div class="likes__counter">
+                        Piace a <b id="like-counter-1" class="js-likes-counter">${element.likes}</b> persone
+                    </div>
+                </div> 
+            </div>            
+        </div>
     `
+    }
+
+
 })
 
 console.log(numberOfLikes);
