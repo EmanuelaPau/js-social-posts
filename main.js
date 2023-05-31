@@ -66,6 +66,19 @@ const postListElement = document.getElementById('container');
 let numberOfLikes = [];
 
 posts.forEach((element, i) => {
+    let unformattedDate = element.created.toString();
+    console.log(unformattedDate);
+    // let day = unformattedDate.substr(1, 4);
+    // console.log(day);
+    let europeanFormatDay = unformattedDate.substr(8, 9);
+    let europeanFormatMonth = unformattedDate.substr(5, 6);
+    let europeanFormatYear = unformattedDate.substr(0, 4);
+    console.log(europeanFormatDay);
+    console.log(europeanFormatMonth);
+    console.log(europeanFormatYear);
+
+
+
     const { name, image } = element.author;
     // console.log(name, image);
 
