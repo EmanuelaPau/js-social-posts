@@ -88,7 +88,7 @@ posts.forEach((element, i) => {
                     </a>
                 </div>
                 <div class="likes__counter">
-                    Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+                    Piace a <b id="like-counter-1" class="js-likes-counter">${element.likes}</b> persone
                 </div>
             </div> 
         </div>            
