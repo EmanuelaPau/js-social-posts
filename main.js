@@ -68,13 +68,15 @@ const posts = [
 const postListElement = document.getElementById('container');
 console.log(postListElement);
 
-
+let numberOfLikes = [];
 
 posts.forEach((element, i) => {
     // console.log(element, i)
 
     const { name, image } = element.author;
-    console.log(name, image);
+    // console.log(name, image);
+
+    numberOfLikes.push(element.likes);
 
     postListElement.innerHTML += ` 
     <div class="post">
@@ -110,9 +112,16 @@ posts.forEach((element, i) => {
     `
 })
 
-const likeButton = document.querySelector('.like-button');
-console.log(likeButton);
+console.log(numberOfLikes);
 
-likeButton.addEventListener('click', function () {
-    likeButton.classList.toggle('like-button--liked');
-})
+const likeButton = document.querySelectorAll('.like-button');
+console.log(likeButton[3]);
+
+const likeCounterElement = document.querySelectorAll('.js-likes-counter')
+
+// likeButton[1].addEventListener('click', function () {
+
+//     likeButton[1].classList.toggle('like-button--liked');
+
+//     likeCounterElement[1].innerHTML = ;
+// })
