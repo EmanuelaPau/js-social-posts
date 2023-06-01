@@ -1,6 +1,6 @@
 # js-social-posts
 A Social Feed built in vanilla JS <br><br>
-<img src="Screenshot.png" width="800px">
+<img src="screenshot.png" width="800px">
 
 <h2><strong>HOW IT WORKS:</strong></h2>
 This is a simulation of how a real social network feed works.
